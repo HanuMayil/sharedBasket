@@ -1,0 +1,68 @@
+<%= form_for @group do |f| %>
+  <p>
+    <%= f.label :name %><br/>
+    <%= f.text_field :name %><br/>
+  </p>
+    <%= f.submit %>
+  <hr>
+
+<% if !@group.id.nil? %>
+  <table>
+    <tr> <th> Members </th> </tr>
+    <% @members = @group.users %>
+    <% if @members.empty? %>
+      <td> <%= "No members" %> </td>
+    <% end %>
+    <% @members.each do |member| %>
+        <tr>
+          <td><%= member.first_name %></td>
+          <td><%= link_to 'Delete', remove_path(group: @group, user: member), method: :post, data: {confirm: "Are you sure?"} %></td>
+        </tr>
+    <% end %>
+  </table>
+<hr>
+
+<% @friendships = current_user.friends %>
+  <% if @friendships.size > 0 %>
+     <table class="table table-stripe"”>
+       <thead>
+            <tr>
+               <th colspan= "3" class = "page-header"
+                     <h2>Add friends to group</h2>
+               </th>
+            </tr>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Actions</th>
+           </tr>
+        </thead>
+        <tbody>
+          <% @friendships.each do |friend| %>
+          <tr>
+            <td><%= friend.full_name %></td>
+            <td><%= friend.email %></td>
+            <td>
+              <%= link_to "View Profile", user_path(friend), class: "btn btn-primary btn-xs" %>
+              <% if @group.users.exists? friend.id %>
+                <%= "Already added" %>
+              <% else %>
+                <%= link_to 'Add to Group', add_path(group: @group, user: friend),
+                  :method => :post,
+                  :class => "btn btn-sx btn-success"%>
+              <% end %>
+            </td>
+          </tr>
+  	       <% end %>
+        </tbody>
+    </table>
+  <%else%>
+  	<div class= "row col-lg012">
+      <p class="lead">You dont have any friends.</p>
+  	</div>
+  <% end %>
+<% end %>
+<% end %>
+
+
+<%= link_to "Back to groups listing", groups_path %>

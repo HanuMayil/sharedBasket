@@ -1,0 +1,12 @@
+<div class="homepage">
+  <%= render partial: 'spree/shared/home' %>
+</div>
+
+
+<div data-hook="homepage_products">
+  <% cache(cache_key_for_products) do %>
+    <%= render partial: 'spree/shared/products', locals: { products: @products } %>
+  <% end %>
+</div>
+
+<%= link_to "logout", destroy_spree_user_session_path, method: :delete %>

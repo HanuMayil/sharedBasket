@@ -1,0 +1,35 @@
+<h1>Listing all groups</h1>
+<p>
+  <%= link_to "Create new group", new_group_path %>
+</p>
+
+<table>
+  <% @groups.each do |group| %>
+  <tr>
+    <tr>
+      <th>Name</th>
+    </tr>
+
+    <td><%= group.name %></td>
+    <tr>
+      <tr> <th> Members </th> </tr>
+    </tr>
+
+    <% @members = group.users %>
+    <% if @members.empty? %>
+      <td> <%= "No members" %> </td>
+    <% end %>
+    <% @members.each do |member| %>
+        <tr>
+          <td><%= member.first_name %></td>
+        </tr>
+    <% end %>
+    <tr><td><br></td></tr>
+    <td>
+      <%= link_to 'Edit', edit_group_path(group) %>
+      <%= link_to 'Delete', group_path(group), method: :delete, data: {confirm: "Are you sure?"} %>
+    </td>
+    <tr><td><hr></td></tr>
+  </tr>
+  <% end %>
+</table>

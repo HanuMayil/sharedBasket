@@ -1,0 +1,48 @@
+<!-- Navbar -->
+<nav class="navbar fixed-top navbar-expand-lg navbar-light white scrolling-navbar">
+  <!-- Brand -->
+<figure id="logo" class="col-sm-1 col-md-1 m-0 p-0" data-hook><%= logo img_options:{class: 'img-responsive', width: '100%'} %></figure>
+
+            <!-- Left -->
+            <ul class="navbar-nav mr-auto">
+              <% @taxonomies.each do |taxonomy| %>
+                <li class="nav-item dropdown">
+                    <% if taxonomy.root.children.empty? %>
+                      <!-- <a href='..t/#taxonomy.taxons[0].permalink' class='btn'>taxonomy.name</a> -->
+                      <%= link_to taxonomy.name, "./t/#{taxonomy.taxons[0].permalink}", :class=> "btn" %>
+                    <% else %>
+                      <%= link_to '#', :class=> "btn dropdown-toggle", data:{toggle: "dropdown"}, "aria-haspopup" => 'true' do %>
+                      <%= taxonomy.name%> <span class='caret'></span>
+                      <% end %>
+                    <% end %>
+
+                    <%= nav_tree(taxonomy.root, @taxon, 2)%>
+                  </li>
+                <% end %>
+            </ul>
+
+            <!-- Right -->
+            <ul class="navbar-nav nav-flex-icons">
+              <li class="nav-item">
+                <div class="input-group form-sm form-2 pl-0 search-bar">
+                  <input class="form-control my-0 py-0 red-border" type="text" placeholder="Search" aria-label="Search">
+                  <div class="input-group-append">
+                    <button type="submit" class="input-group-text red lighten-3" id="basic-text1"><i class="fa fa-search text-grey" aria-hidden="true"></i></button>
+                  </div>
+                </div>
+              </li>
+                <li class="nav-item">
+                    <a href="https://www.facebook.com/mdbootstrap" class="nav-link waves-effect" target="_blank">
+                        <i class="fa fa-gift"></i>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="https://twitter.com/MDBootstrap" class="nav-link waves-effect" target="_blank">
+                        <i class="fa fa-shopping-cart"></i>
+                    </a>
+                </li>
+            </ul>
+
+
+</nav>
+<!-- Navbar -->

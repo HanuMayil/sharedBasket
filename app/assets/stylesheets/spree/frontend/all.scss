@@ -1,0 +1,14 @@
+@import "mdb";
+@import "bootstrap";
+@import "font-awesome";
+@import url('https://fonts.googleapis.com/css?family=Poppins:700,800,900|Quicksand:500,600,700|Roboto:500,700,900&display=swap');
+
+@import "spree/frontend/home";
+@import "spree/frontend/standard";
+@import "spree/frontend/header";
+@import "spree/frontend/product";
+
+
+*{
+  font-family: Quicksand;
+}

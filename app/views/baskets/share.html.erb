@@ -1,0 +1,24 @@
+<h1>Listing Basket Members</h1>
+
+<table>
+  <% @shared = @basket.users %>
+  <% @shared.each do |share| %>
+    <% if UserItem.where(:item_id => @item.id, :user_id => share.id, :basket_id => @basket.id).exists? %>
+      <th>
+        <%= share.first_name %>
+        <%= "Already shared" %>
+      </th>
+      <tr><td><br></td></tr>
+    <% else %>
+      <th>
+        <%= share.first_name %>
+        <%= link_to 'Share', share_path(item: @item, basket: @basket, user: share), :method => :post %>
+      </th>
+      <tr><td><br></td></tr>
+    <% end %>
+  <% end %>
+
+  <th>
+    <%= link_to "Back to baskets listing", baskets_path %>
+  </th>
+</table>

@@ -1,0 +1,21 @@
+<h1>Showing selected basket</h1>
+
+<p>
+Title: <%= @basket.id %>
+<table>
+  <th> Members </th>
+  <% @members = @basket.id %>
+  <% if @members.empty? %>
+    <td> <%= "No members" %> </td>
+  <% else %>
+    <% @members.each do |member| %>
+        <tr>
+          <td><%= member.first_name %></td>
+        </tr>
+    <% end %>
+  <% end %>
+</table>
+</p>
+
+<%= link_to "Edit this group", edit_basket_path(@basket) %>
+<%= link_to "Back to groups listing", baskets_path %>

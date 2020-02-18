@@ -1,0 +1,21 @@
+<h1>Showing selected group</h1>
+
+<p>
+Title: <%= @group.name %>
+<table>
+  <th> Members </th>
+  <% @members = @group.users %>
+  <% if @group.users.empty? %>
+    <td> <%= "No members" %> </td>
+  <% else %>
+    <% @members.each do |member| %>
+        <tr>
+          <td><%= member.first_name %></td>
+        </tr>
+    <% end %>
+  <% end %>
+</table>
+</p>
+
+<%= link_to "Edit this group", edit_group_path(@group) %>
+<%= link_to "Back to groups listing", groups_path %>

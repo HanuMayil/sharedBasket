@@ -1,0 +1,31 @@
+html{
+  font-size: calc(0.4em + 1vw) !important;
+}
+
+
+button{
+  cursor: pointer;
+}
+
+.d-flex{
+  display: flex;
+}
+
+$mokey-red: #FD4E56;
+$light-gray: #9b9b9b;
+$no-gray: #1a1a1a;
+
+
+.btn{
+  font-weight: 600 !important;
+  text-transform: capitalize !important;
+}
+
+.btn-mokey{
+  background: $mokey-red;
+  color: white;
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16);
+  text-align: center;
+  border: 0px;
+  padding: 0.3rem 1.5rem;
+}

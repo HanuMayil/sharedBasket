@@ -1,0 +1,46 @@
+<h1>Listing all baskets</h1>
+<p>
+  <%= link_to "Create new basket", new_basket_path %>
+</p>
+
+<table>
+
+  <% @baskets.each do |basket| %>
+  <tr>
+    <tr>
+      <th>Name</th>
+    </tr>
+    <td><%= basket.name %></td>
+    <tr><td><br></td></tr>
+    <tr> <th> Owner </th> </tr>
+    <td><%= User.find(basket.owner_id).first_name %></td>
+    <tr><td><br></td></tr>
+    <tr>
+      <tr> <th> Members </th> </tr>
+    </tr>
+
+    <% @shoppers = basket.users %>
+    <% if @shoppers.empty? %>
+      <td> <%= "No shoppers" %> </td>
+    <% end %>
+    <% @shoppers.each do |shopper| %>
+      <% if basket.owner_id == shopper.id %>
+
+      <% else %>
+        <tr>
+          <td><%= shopper.first_name %></td>
+        </tr>
+      <% end %>
+    <% end %>
+
+    <tr><td><br></td></tr>
+    <td>
+      <%= link_to 'Edit', edit_basket_path(basket) %>
+      <% if basket.owner_id == current_user.id %>
+        <%= link_to 'Delete', basket_path(basket), method: :delete, data: {confirm: "Are you sure?"} %>
+      <% end %>
+    </td>
+    <tr><td><hr></td></tr>
+  </tr>
+  <% end %>
+</table>

@@ -1,0 +1,23 @@
+<%# no need for thumbnails unless there is more than one image %>
+<% if @product.gallery.images.size > 1 %>
+  <ul id="product-single__thumbnails" class="thumbnails inline " data-hook style="display: inline-flex;">
+
+    <% @product.gallery.images.each do |image| %>
+      <% next if image.viewable_id != @product.master.id %>
+      <li class='tmb-all tmb-<%= image.viewable_id %>'>
+        <!-- < link_to(image_tag(image.url(:product)), image.url(:product))> -->
+        <%= image_tag(image.url(:product), :class => "product-single__thumbnail-image", :onclick => "myFunction(this);" ) %>
+      </li>
+    <% end %>
+
+    <% if @product.has_variants? %>
+      <% @product.gallery.images.each do |image| %>
+        <% next if image.viewable_id == @product.master.id %>
+        <li class='vtmb tmb-<%= image.viewable_id %>'>
+          <!-- < link_to(image_tag(image.url(:product)), image.url(:product)) > -->
+          <%= image_tag(image.url(:product), :class => "product-single__thumbnail-image", :onclick => "myFunction(this);") %>
+        </li>
+      <% end %>
+    <% end %>
+  </ul>
+<% end %>

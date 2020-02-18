@@ -1,0 +1,136 @@
+<%= form_for @basket do |f| %>
+  <p>
+    <%= f.label :name %><br/>
+    <%= f.text_field :name %><br/>
+  </p>
+    <%= f.submit %>
+  <hr>
+
+<% if !@basket.id.nil? %>
+  <table>
+    <tr> <th> Owner </th> </tr>
+    <td><%= User.find(@basket.owner_id).first_name %></td>
+    <tr><td><br></td></tr>
+    <tr> <th> Members </th> </tr>
+    <% @shoppers = @basket.users %>
+    <% if @shoppers.empty? %>
+      <td> <%= "No members" %> </td>
+    <% end %>
+    <% @shoppers.each do |shopper| %>
+      <% if @basket.owner_id == shopper.id %>
+
+      <% else %>
+        <tr>
+          <td><%= shopper.first_name %></td>
+          <td><%= link_to 'Delete', remove_shopper_path(basket: @basket, user: shopper), method: :post, data: {confirm: "Are you sure?"} %></td>
+        </tr>
+      <% end %>
+    <% end %>
+  </table>
+  <hr>
+
+  <% @items = Item.all %>
+  <h1> Items </h1>
+    <% if @basket.items.size > 0 %>
+        <table class="table table-stripe">
+         <thead>
+              <tr>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Sharing With</th>
+             </tr>
+          </thead>
+          <tbody>
+            <% @items.each do |item| %>
+            <% if @basket.items.exists? item.id %>
+              <tr>
+                <td><%= item.name %></td>
+                <td><%= "$#{item.unit_price}" %></td>
+                <td>
+                  <% if AddedItem.where(:item_id => item.id, :basket_id => @basket.id).count == 0 %>
+                    <%= "" %>
+                  <% else %>
+                    <%= link_to '-', remove_item_path(basket: @basket, item: item), :method => :post, class: "btn btn-primary btn-xs" %>
+                  <% end %>
+                  <%= AddedItem.where(:item_id => item.id, :basket_id => @basket.id).count %>
+                  <%= link_to '+', add_item_path(basket: @basket, item: item, current_user: current_user), :method => :post, :class => "btn btn-xs btn-success" %>
+                  <%= link_to 'Share', show_user_path(item: item, basket: @basket), :method => :post, class: "btn btn-primary btn-xs" %>
+                </td>
+                <td>
+                  <% @buyers = UserItem.where(:item_id => item.id, :basket_id => @basket.id) %>
+                  <% @buyers.each do |user_item| %>
+                    <% @print = User.find(user_item.user_id).first_name %>
+                    <%= @print %>
+                    <strong> <%= "#{user_item.percent_owing}%" %> </strong>
+                    <% if UserItem.where(:item_id => item.id, :basket_id => @basket.id).count == 1 %>
+                    <% else %>
+                      <%= link_to 'Remove', user_item_path(user_item), method: :delete, data: {confirm: "Are you sure?"} %>
+                    <% end %>
+                    <br>
+                  <% end %>
+                </td>
+              </tr>
+            <% end %>
+      	       <% end %>
+            </tbody>
+          </table>
+          <hr>
+          <% @users = @basket.users %>
+          <% @users.each do |user| %>
+            <% user_subtotal = 0 %>
+            <% @items = UserItem.where(:user_id => user.id, :basket_id => @basket.id) %>
+            <% @items.each do |item| %>
+              <% user_subtotal += (Item.find(item.item_id).unit_price * AddedItem.where(:item_id => item.item_id, :basket_id => @basket.id).count) / UserItem.where(:item_id => item.item_id, :basket_id => @basket.id).count %>
+            <% end %>
+            <td> <%= "#{user.first_name}: $#{user_subtotal.round(2)}" %> <br> </td>
+          <% end %>
+          <td> <strong> <%= "Subtotal: $#{@basket.total_price}" %> </strong> </td>
+      <%else%>
+        <p class="lead">No items at this time.</p>
+        <%= link_to "Start shopping!", items_path %>
+        <hr>
+      <% end %>
+    <% end %>
+<% end %>
+
+<tr><td><br></td></tr>
+<% @friendships = current_user.friends %>
+  <% if @friendships.size > 0 && !@basket.id.nil?%>
+  <h1> Add Friends </h1>
+   <table class="table table-stripe">
+     <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Actions</th>
+         </tr>
+      </thead>
+      <tbody>
+        <% @friendships.each do |friend| %>
+        <tr>
+          <td><%= friend.full_name %></td>
+          <td><%= friend.email %></td>
+          <td>
+            <%= link_to "View Profile", user_path(friend), class: "btn btn-primary btn-xs" %>
+            <% if @basket.users.exists? friend.id %>
+              <%= "Already added" %>
+            <% elsif @basket.owner_id == friend.id %>
+              <%= "Owner" %>
+            <% else %>
+              <%= link_to 'Add to Basket', add_shopper_path(basket: @basket, user: friend),
+                :method => :post,
+                :class => "btn btn-sx btn-success"%>
+            <% end %>
+          </td>
+        </tr>
+         <% end %>
+      </tbody>
+  </table>
+<%elsif !@basket.id.nil? %>
+  <div class= "row col-lg012">
+    <p> You don't have any friends.</p>
+  </div>
+<% end %>
+
+<%= link_to "Back to baskets listing", baskets_path %>

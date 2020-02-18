@@ -1,0 +1,576 @@
+.nav-item a{
+  color: #3c3c3c !important;
+  font-weight: 600 !important;
+}
+
+
+.banner {
+margin: 0px;
+  height: 600px;
+  /* background: #C4C4C4; */
+  background-image: linear-gradient(to left top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.1)), url("https://images.unsplash.com/photo-1490645935967-10de6ba17061?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1935&q=80");
+  background-attachment: fixed;
+  background-size: cover;
+  /* background-repeat: no-repeat; */
+  background-position: 100% 100%;
+  display: flex;
+  align-items: center;
+
+  .banner-wrapper{
+    text-align: center;
+  }
+}
+
+
+
+.banner-title{
+  padding-top: 40px;
+  padding-left: 80px;
+  padding-right: 80px;
+  color: white;
+  text-align: center;
+  font-family: Quicksand, sans-serif;
+  font-size: 40px;
+  font-weight: 800;
+  text-shadow: 0px 0px 16px black;
+}
+
+.page-width--wide{
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+ // --Why Mokey-- //
+
+.story, .history, .mission, .qaa {
+  margin-bottom: 3rem;
+}
+
+.h2 {
+  text-align: center;
+  font-size: calc(0.8rem + ((16 * (100vw - 768px)) / 671));
+  font-family: 'Poppins', sans-serif;
+  font-weight: bolder;
+  margin-bottom: 1rem;
+  margin-top: 3rem;
+}
+
+.story-container, .history-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: center;
+}
+
+
+
+.text-container {
+    width: 100%;
+    padding: 2rem;
+    background-color: white;
+    box-shadow: 0px 0px 50px #C4C4C4;
+    z-index: -1;
+    margin-top: 50px;
+    margin-left: 1rem;
+    line-height: 10px;
+}
+
+#history-text-container{
+  padding-right: 80px;
+  margin-left: -50px;
+}
+
+.hr{
+  color: black;
+margin-top: 1rem;
+margin-bottom:1rem;
+
+}
+
+.text-p {
+  padding-left: 60px;
+}
+
+
+.story-pic {
+  display: flex;
+  background-image: url("https://assets-ouch.icons8.com/preview/345/85537991-8858-4098-b61a-33efae98780c.png");
+  /* linear-gradient(to left top, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.1)),  */
+  background-size: auto 17rem;
+  background-repeat: no-repeat;
+  /* width: 400px; */
+  align-items: center;
+  background-position: 0px 1rem;
+  -webkit-filter: drop-shadow( -5px -5px 5px #727171 );
+filter: drop-shadow( -5px -5px 5px #727171 );
+}
+
+.history-pic {
+  height: 120%;
+    width: 140%;
+  display: flex;
+  background-image: url("https://assets-ouch.icons8.com/preview/680/5aa30fc9-afb7-4088-83a6-e9e39e07491a.png");
+  /* linear-gradient(to left top, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.1)),  */
+  background-size: auto 18rem;
+  background-repeat: no-repeat;
+  align-items: center;
+  background-position: 9rem 25px;
+  -webkit-filter: drop-shadow( -5px -5px 5px #727171 );
+filter: drop-shadow( -5px -5px 5px #727171 );
+z-index:1;
+}
+
+.history-pic2 {
+  height: 120%;
+    width: 140%;
+  display: flex;
+  background-image: url("https://assets-ouch.icons8.com/preview/44/53cfe610-28ae-4311-97a1-bdae9cf0f7b4.png");
+  /* linear-gradient(to left top, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.1)),  */
+  background-size: auto 16rem;
+  background-repeat: no-repeat;
+  align-items: center;
+  background-position: 5rem 0px;
+  -webkit-filter: drop-shadow( -5px -5px 5px #727171 );
+filter: drop-shadow( -5px -5px 5px #727171 );
+z-index:1;
+}
+
+
+
+/* font */
+.h3 {
+  margin-top: 0;
+  margin-bottom: 30px;
+  line-height: 1;
+  font-size: calc(1.3rem + ((8 * (100vw - 768px)) / 671));
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+}
+
+.p{
+  font-size: calc(0.6rem + ((8 * (100vw - 768px)) / 671));
+  font-family: 'Quicksand', sans-serif;
+  color: #727171;
+  line-height: 1.5;
+  font-weight: 600;
+}
+
+
+
+
+/* how it works*/
+
+
+
+.card p {
+  opacity: .8;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.hiw-container{
+  width: 1400px;
+}
+
+.hiw-h5{
+  font-family: 'Poppins', sans-serif;
+}
+
+.card {
+  display: flex;
+  max-width: 360px;
+  border-radius: 3px;
+  border: 0px 0px 50px #C4C4C4;
+  text-align: center;
+  padding: 20px;
+  border: 1px solid rgb(230,230,230);
+  margin: 0px auto;
+  box-radius: 20px;
+}
+
+
+.cards {
+  display: grid;
+  flex-grow: 1;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-row: 1;
+  margin-bottom: 30px;
+}
+
+.container-img{
+  display: flex;
+  justify-content: center;
+  max-height: 210px;
+  /* transform: translateY(20%); */
+}
+
+.btn-learn{
+  background: #f5dc98;
+  color: #FF5E68;
+  border-radius: 15px;
+  padding: 8px 20px;
+  font-size: 18px;
+  font-weight: 700;
+  box-shadow: 0px 0px 5px #C4C4C4;
+}
+
+
+.text-center {
+  text-align: center;
+}
+
+
+.container-img img {
+  max-height: 170px;
+}
+
+
+
+@media (max-width: 920px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+  .container{
+    max-width: 800px;
+  }
+  .card{
+    max-width: 500px;
+  }
+}
+
+.btn-CTA{
+background: #FF5E67;
+border-radius: 50px;
+}
+
+
+
+/*Build in KW*/
+
+
+ .mission {
+ margin: 0px;
+   height: 350px;
+   /* background: #C4C4C4; */
+   background-image: linear-gradient(to left top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.1)), url("https://cdn.shopify.com/s/files/1/1977/2911/t/7/assets/about-us-mission-img.jpg");
+   background-attachment: fixed;
+   background-size: cover;
+   /* background-repeat: no-repeat; */
+   background-position: 100% 100%;
+ display: flex;
+ align-items: center;
+ }
+
+
+
+ .mission-statement{
+   padding-top: 40px;
+   padding-left: 80px;
+   padding-right: 80px;
+   color: white;
+   text-align: center;
+   font-family: Quicksand, sans-serif;
+   font-size: 40px;
+   font-weight: 800;
+   text-shadow: 0px 0px 16px black;
+ }
+
+
+
+/* footer */
+
+
+
+.footer-distributed{
+     background: linear-gradient(to left, #e66465, #79b2eb);
+ box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+ box-sizing: border-box;
+ width: 100%;
+ text-align: left;
+ font: bold 16px sans-serif;
+ padding: 55px 50px;
+ margin-top: 80px;
+}
+
+.footer-distributed .footer-left,
+.footer-distributed .footer-center,
+.footer-distributed .footer-right{
+ display: inline-block;
+ vertical-align: middle;
+}
+
+/* Footer left */
+
+.footer-distributed .footer-left{
+ width: 40%;
+}
+
+/* The company logo */
+
+.footer-distributed h3{
+ color:  #ffffff;
+ /* font: normal 36px 'Cookie', cursive; */
+ margin: 0;
+}
+
+.footer-distributed h3 span{
+ color:  #5383d3;
+}
+
+/* Footer links */
+
+.footer-distributed .footer-links{
+ color:  #ffffff;
+ margin: 0px 0 12px;
+ padding-left: 10px;
+}
+
+.footer-distributed .footer-links a{
+ display:inline-block;
+ line-height: 1.8;
+ text-decoration: none;
+ color:  inherit;
+}
+
+.footer-distributed .footer-company-name{
+ color:  White;
+ font-size: 14px;
+ font-weight: normal;
+ margin: 0;
+ padding-left: 20px;
+}
+
+/* Footer Center */
+
+.footer-distributed .footer-center{
+ width: 35%;
+}
+
+.footer-distributed .footer-center i{
+ background-color: #fe7d7d;
+ color: #ffffff;
+ font-size: 25px;
+ width: 38px;
+ height: 38px;
+ border-radius: 50%;
+ text-align: center;
+ line-height: 42px;
+ margin: 10px 15px;
+ vertical-align: middle;
+}
+
+.footer-distributed .footer-center i.fa-envelope{
+ font-size: 17px;
+ line-height: 38px;
+}
+
+.footer-distributed .footer-center p{
+ display: inline-block;
+ color: #ffffff;
+ vertical-align: middle;
+ margin:0;
+}
+
+.footer-distributed .footer-center p span{
+ display:block;
+ font-weight: normal;
+ font-size:14px;
+ line-height:2;
+}
+
+
+.footer-distributed .footer-center p a{
+ color:  #fff;
+ text-decoration: none;;
+}
+
+
+/* Footer Right */
+
+.footer-distributed .footer-right{
+ width: 20%;
+}
+
+.footer-distributed .footer-company-about{
+ line-height: 20px;
+ color:  White;
+ font-size: 13px;
+ font-weight: normal;
+ margin: 0;
+ font-weight: bold;
+}
+
+.footer-distributed .footer-company-about span{
+ display:block;
+ font-weight: normal;
+ font-size:14px;
+ line-height:1.3;
+ margin-top: 10px;
+}
+
+.footer-distributed p{
+ font-size: 20px !important;
+}
+
+.footer-distributed .footer-icons{
+ margin-top: 25px;
+ margin-bottom: 25px;
+}
+
+
+.footer-payment-icons img{
+ height:35px;
+ margin-bottom: 10px;
+ margin-left: 5px;
+}
+
+
+.footer-distributed .footer-icons a{
+ display: inline-block;
+ width: 35px;
+ height: 35px;
+ cursor: pointer;
+ background-color:  #79b2eb;
+ border-radius: 2px;
+
+ font-size: 20px !important;
+ color: #ffffff;
+ text-align: center;
+ line-height: 35px;
+
+ margin-right: 3px;
+ margin-bottom: 5px;
+}
+
+/* If you don't want the footer to be responsive, remove these media queries */
+
+@media (max-width: 880px) {
+
+ .footer-distributed{
+   font: bold 14px sans-serif;
+ }
+
+ .footer-distributed .footer-left,
+ .footer-distributed .footer-center,
+ .footer-distributed .footer-right{
+   display: block;
+   width: 100%;
+   margin-bottom: 40px;
+   text-align: center;
+ }
+
+ .footer-distributed .footer-center i{
+   margin-left: 0;
+ }
+
+}
+
+
+
+
+
+
+/* home page mobile*/
+
+
+@media screen and (max-width: 900px) {
+
+  .h2, .qaa-title{
+    font-size: 1rem !important;
+  }
+
+  #why-mokey{
+
+    .story-title{
+      font-size: 1rem;
+    }
+
+    .story-container, .history-container {
+      display: grid;
+      grid-template-columns: 1fr;
+      justify-content: center;
+    }
+
+    .story, .history{
+      margin-bottom: 20px !important;
+    }
+
+    .story-pic, .history-pic{
+      height: 160px;
+      background-size: contain;
+      background-position: center;
+      width: 100%;
+    }
+    .history-text{
+      grid-row: 1;
+    }
+    .text-container {
+      padding: 20px 20px;
+      width: 100%;
+      margin: 0;
+
+        .h3{
+          margin: 0;
+        }
+
+        .hr{
+          margin: 7px;
+        }
+      }
+
+    .text-p{
+      padding-left: 0;
+      font-size: 13px;
+      margin-bottom: 0;
+    }
+  }
+
+  #shopify-section-1577128691847{
+    .goal{
+      height: 200px;
+
+      .goal-statement{
+        font-size: 25px;
+        margin: 0;
+      }
+    }
+  }
+  #shopify-section-1576818288855{
+    .mission{
+      height: 200px !important;
+    }
+
+    .mission-statement{
+      font-size: 1rem;
+      padding: 20px;
+    }
+
+  }
+
+
+  #shopify-section-1577043636438{
+
+    .qaa-container{
+      padding: 0 10px;
+    }
+
+    .qaa-ul{
+      padding-left: 0;
+      padding-right: 0;
+      padding-top: 0;
+      margin: 0 0 20px 0;
+    }
+
+    .qaa-ul li{
+      padding: 7px 0;
+      width: 90%;
+
+      .answer{
+        width: 80% !important;
+        font-size: 15px;
+        line-height: normal;
+        padding:10px !important;;
+      }
+    }
+  }
+}
